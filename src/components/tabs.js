@@ -1,4 +1,5 @@
 import axios from "axios";
+import { get } from "express/lib/response";
 
 const Tabs = (topics) => {
   // TASK 3
@@ -27,8 +28,9 @@ const Tabs = (topics) => {
   )
   return newTopics;
  }
-const newArray = axios.get('http://localhost:5000/api/topics').then(resp =>{
-  Tabs(resp.data);
+// const newArray = 
+axios.get('http://localhost:5000/api/topics').then(resp =>{
+  console.log(resp.data);
 }).catch(err => {console.log(error);}) ;
 const tabsAppender = (selector) => {
   // TASK 4
@@ -40,7 +42,7 @@ const tabsAppender = (selector) => {
   //
 
 
-document.querySelector(selector).appendChild(Tabs(newArray));
+document.querySelector(selector).appendChild(Tabs());
 }
 
 export { Tabs, tabsAppender }
