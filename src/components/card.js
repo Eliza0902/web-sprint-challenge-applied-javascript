@@ -1,3 +1,6 @@
+import axios from "axios";
+
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -39,7 +42,9 @@ const Card = (article) => {
   return newCard;
 
 }
-
+axios.get('http://localhost:5000/api/articles').then(resp =>{
+  console.log(Card(resp.data.articles.node[0]));
+ }).catch(err => {console.log('error');})
 const cardAppender = (selector) => {
   // TASK 6
   // ---------------------
@@ -49,7 +54,51 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-  
+  axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.javascript[0]));
+   }).catch(err => {console.log('error');})
+   axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.javascript[1]));
+   }).catch(err => {console.log('error');});
+   axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.javascript[2]));
+   }).catch(err => {console.log('error');});
+   axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.javascript[3]));
+   }).catch(err => {console.log('error');});
+   axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.bootstrap[0]));
+}).catch(err => {console.log('error');});
+axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.bootstrap[1]));
+}).catch(err => {console.log('error');});
+axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.bootstrap[2]));
+}).catch(err => {console.log('error');});
+axios.get('http://localhost:5000/api/articles').then(resp =>{
+  document.querySelector(selector).appendChild(Card(resp.data.articles.technology[0]));
+   }).catch(err => {console.log('error');});
+   axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.technology[1]));
+     }).catch(err => {console.log('error');});
+     axios.get('http://localhost:5000/api/articles').then(resp =>{
+  document.querySelector(selector).appendChild(Card(resp.data.articles.technology[2]));
+   }).catch(err => {console.log('error');});  
+   axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.jquery[0]));
+   }).catch(err => {console.log('error');});
+   axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.jquery[1]));
+   }).catch(err => {console.log('error');});
+   axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.jquery[2]));
+   }).catch(err => {console.log('error');});
+   axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.node[0]));
+   }).catch(err => {console.log('error');});
+   axios.get('http://localhost:5000/api/articles').then(resp =>{
+    document.querySelector(selector).appendChild(Card(resp.data.articles.node[1]));
+   }).catch(err => {console.log('error');})
 }
 
 export { Card, cardAppender }
